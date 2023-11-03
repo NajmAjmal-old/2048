@@ -30,7 +30,6 @@ function event(game) {
         game.view.resize();
     });
 
-    // 自动测试
     var autoTest = false;
 
     if (autoTest) {
