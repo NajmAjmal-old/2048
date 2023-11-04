@@ -1,0 +1,17 @@
+{
+    "name": "2048",
+    "short_name": "2048",
+    "description": "Join the numbers and get to the 2048 tile!",
+    "author": "Najm Ajmal",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#776e65",
+    "icons": [
+        {
+            "src": "favicon.ico",
+            "sizes": "32x32",
+            "type": "image/icon"
+        }
+    ]
+}
