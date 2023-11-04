@@ -1,6 +1,8 @@
-const GAME_CACHE = '2048.1.0.2'; // Change this to update the cache
+const GAME_CACHE = '2048.1.0.3'; // Change this to update the cache
 const cacheUrls = [
     '/',
+    '/favicon.ico',
+    '/favicon.png',
     '/index.html',
     '/styles.css',
     '/app.js',
