@@ -1,4 +1,4 @@
-const GAME_CACHE = '2048.1.0.1'; // Change this to update the cache
+const GAME_CACHE = '2048.1.0.2'; // Change this to update the cache
 const cacheUrls = [
     '/',
     '/index.html',
@@ -20,7 +20,7 @@ const cacheUrls = [
     '/font/ClearSans-Regular-webfont.woff',
 ];
 
-self.addEventListener('install', (event) => {
+elf.addEventListener('install', (event) => {
     event.waitUntil(
         caches.open(GAME_CACHE).then((cache) => {
             return cache.addAll(cacheUrls);
@@ -46,4 +46,27 @@ self.addEventListener('activate', (event) => {
             );
         })
     );
+});
+
+self.addEventListener('message', (event) => {
+    if (event.data === 'skipWaiting') {
+        self.skipWaiting();
+    }
+});
+
+self.addEventListener('fetch', (event) => {
+    if (event.request.mode === 'navigate') {
+        event.respondWith(
+            fetch(event.request)
+                .then((response) => {
+                    return caches.open(GAME_CACHE).then((cache) => {
+                        cache.put(event.request, response.clone());
+                        return response;
+                    });
+                })
+                .catch(() => {
+                    return caches.match(event.request);
+                })
+        );
+    }
 });
