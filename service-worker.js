@@ -1,4 +1,4 @@
-const GAME_CACHE = '2048.1.0.0'; // Change this to update the cache
+const GAME_CACHE = '2048.1.0.1'; // Change this to update the cache
 const cacheUrls = [
     '/',
     '/index.html',
